@@ -183,5 +183,3 @@ The README requires pets to be sorted alphabetically by name by default.
 The default sort is a contract about how data should be returned, not a product-level concern for each consumer to implement independently. By setting the default in the API, any future consumer gets the correct behavior automatically without needing to know to pass `sortBy=name`.
 
 The tradeoff is that Option 1 would make the sort state fully visible in the URL, which is better for shareability. However, for a default state a clean URL with no `sortBy` param is better UX — the URL only gains params when the user actively changes something.
-
-
