@@ -1,21 +1,15 @@
 import Image from 'next/image';
+import {
+  TABLET_BREAKPOINT_PX,
+  MOBILE_IMAGE_WIDTH_PX,
+  DESKTOP_IMAGE_WIDTH_VW,
+} from '@/lib/constants';
+import { CardProps } from './index.types';
 import styles from './index.module.css';
 
-const GRID_BREAKPOINT_PX = 768;
-const MOBILE_IMAGE_WIDTH_PX = 150;
-const DESKTOP_IMAGE_WIDTH_VW = 33;
+const IMAGE_SIZES = `(min-width: ${TABLET_BREAKPOINT_PX}px) ${DESKTOP_IMAGE_WIDTH_VW}vw, ${MOBILE_IMAGE_WIDTH_PX}px`;
 
-const IMAGE_SIZES = `(min-width: ${GRID_BREAKPOINT_PX}px) ${DESKTOP_IMAGE_WIDTH_VW}vw, ${MOBILE_IMAGE_WIDTH_PX}px`;
-
-export function Card({
-  name,
-  image,
-  priority = false,
-}: {
-  name: string;
-  image: string;
-  priority?: boolean;
-}) {
+export function Card({ name, image }: CardProps) {
   return (
     <li className={styles.container}>
       <div className={styles.imageContainer}>
@@ -25,7 +19,6 @@ export function Card({
           className={styles.image}
           fill
           sizes={IMAGE_SIZES}
-          priority={priority}
         />
       </div>
       <h3 className={`${styles.petName} h4`}>{name}</h3>
