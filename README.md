@@ -136,3 +136,23 @@ Happy coding! 😺
 | **test:watch**          | Run unit tests in watch mode                           |
 | **test:watch:coverage** | Run unit tests in watch mode and code coverage enabled |
 | **typecheck**           | Validate TypeScript compilation                        |
+
+## Architectural decisions
+
+### Species endpoint: `/api/pets/species`
+
+The assignment provides a single `/api/pets` endpoint. Fetching the list of species for the filter dropdown required a separate data source.
+
+**Options considered:**
+
+1. Call `/api/pets` with no filters, fetch all pets, and derive unique species in a lib function.
+2. Import the data file directly in `getSpecies()` and skip HTTP entirely.
+3. Add a dedicated `/api/pets/species` endpoint.
+
+**Decision: Option 3 — `/api/pets/species`**
+
+In a real-world application, species would typically live in its own database table and be served by its own endpoint — it is reference/taxonomy data, not derived on the fly from the pets table. Adding `/api/pets/species` reflects that real-world scenario, even though the current data source is a local file.
+
+This decision is also aligned with pagination. In a real application, `/api/pets` would be paginated, meaning fetching all pets to derive species on the frontend would only return species present on the current page — producing an incomplete and incorrect filter dropdown. A dedicated endpoint decouples the filter options from the paginated results entirely.
+
+Species is a sub-resource of pets rather than an independent concept, so nesting it under `/api/pets/species` makes the relationship explicit in the URL and follows REST conventions naturally. This also keeps the data-fetching layer consistent — `getPets` already uses `fetch` against an internal API route, so `getSpecies` following the same pattern avoids having two different strategies for server-side data access.
