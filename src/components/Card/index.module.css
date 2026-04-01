@@ -1,4 +1,5 @@
 .container {
+  list-style: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,24 +14,28 @@
 
 .image {
   object-position: center;
-  aspect-ratio: 16 / 9;
   object-fit: cover;
-  width: 100%;
   border-radius: 16px;
 }
 
 .imageContainer {
-  flex: 0 1 150px;
+  flex: 0 0 150px;
+  position: relative;
+  aspect-ratio: 16 / 9;
+}
+
+@media (min-width: 768px) {
+  .imageContainer {
+    flex: 1 1 auto;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+  }
 }
 
 @media (min-width: 768px) {
   .container {
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  .image {
-    aspect-ratio: 4 / 3;
   }
 }
 
@@ -46,4 +51,9 @@
   font-weight: 700;
   text-decoration: none;
   min-width: 130px;
+}
+
+.cta:focus-visible {
+  outline: 3px solid var(--color-vibrant-blue);
+  outline-offset: 3px;
 }
