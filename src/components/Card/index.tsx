@@ -29,7 +29,7 @@ export function Card({
         />
       </div>
       <h3 className={`${styles.petName} h4`}>{name}</h3>
-      <a href="#petDetail" className={styles.cta} aria-label={`View ${name}`}>
+      <button className={styles.cta} aria-label={`View ${name}`}>
         <Image
           src="/icons/arrow-right.svg"
           alt=""
@@ -39,7 +39,7 @@ export function Card({
           aria-hidden
         />
         <span className={styles.ctaText}>View</span>
-      </a>
+      </button>
     </li>
   );
 }
