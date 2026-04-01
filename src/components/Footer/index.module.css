@@ -1,0 +1,11 @@
+.band {
+  height: 6rem;
+  background-color: var(--color-pistachio);
+}
+
+.copyright {
+  padding: 1.2rem 0;
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--color-dark-gray);
+}

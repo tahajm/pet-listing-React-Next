@@ -20,9 +20,6 @@ export default function Home() {
           </div>
         </Container>
       </div>
-      <div className={styles.footer}>
-        <Container>&nbsp;</Container>
-      </div>
     </div>
   );
 }

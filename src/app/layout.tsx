@@ -1,5 +1,5 @@
 import './globals.css';
-
+import { Footer } from '@/components/Footer';
 import { Open_Sans } from 'next/font/google';
 
 const openSans = Open_Sans({
@@ -16,7 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={openSans.className}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
