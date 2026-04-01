@@ -1,0 +1,17 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-recommended"],
+  "overrides": [
+    {
+      "files": ["./*.ts{,x}", "src/**/*.ts{,x}"],
+      "customSyntax": "postcss-styled-syntax"
+    }
+  ],
+  "ignoreFiles": ["**/coverage/**", "**/dist/**", "**/node_modules/**", "**/__snapshots__/**"],
+  "rules": {
+    "value-keyword-case": null,
+    "function-no-unknown": null,
+    "property-no-unknown": null,
+    "selector-class-pattern": null,
+    "media-feature-range-notation": "prefix"
+  }
+}

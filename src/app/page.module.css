@@ -1,0 +1,11 @@
+.footer {
+  display: flex;
+  height: 60px;
+}
+
+@media (min-width: 768px) {
+  .cardContainer {
+    display: flex;
+    gap: 7rem;
+  }
+}

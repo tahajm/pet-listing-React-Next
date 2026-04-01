@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-basis: 33%;
+  gap: 2.4rem;
+}
+
+.petName {
+  justify-self: flex-start;
+  margin: 0 auto 0 0;
+}
+
+.image {
+  object-position: center;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 16px;
+}
+
+.imageContainer {
+  flex: 0 1 150px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .image {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+.cta {
+  background-color: var(--color-vibrant-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.6rem;
+  border-radius: 8px;
+  font-size: 1.6rem;
+  color: var(--color-white);
+  font-weight: 700;
+  text-decoration: none;
+  min-width: 130px;
+}
