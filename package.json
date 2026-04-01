@@ -55,7 +55,7 @@
     "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "globals": "^17.0.0",
-    "happy-dom": "20.3.4",
+    "happy-dom": "^20.8.9",
     "postcss": "^8.5.6",
     "postcss-styled-syntax": "^0.7.1",
     "prettier": "^3.8.0",
