@@ -1,0 +1,16 @@
+.cardContainer {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8.4rem;
+}
+
+@media (min-width: 768px) {
+  .cardContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8.4rem;
+  }
+}
