@@ -2,14 +2,16 @@
   list-style: none;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   flex-basis: 33%;
   gap: 2.4rem;
 }
 
 .petName {
-  justify-self: flex-start;
-  margin: 0 auto 0 0;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .image {
@@ -44,13 +46,38 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1.4rem 1.6rem;
-  border-radius: 8px;
-  font-size: 1.6rem;
+  padding: 1.4rem;
+  border-radius: 9999px;
   color: var(--color-white);
-  font-weight: 700;
   text-decoration: none;
-  min-width: 130px;
+  flex-shrink: 0;
+}
+
+.ctaText {
+  display: none;
+}
+
+.ctaIcon {
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+@media (min-width: 768px) {
+  .cta {
+    padding: 1.4rem 1.6rem;
+    border-radius: 8px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    min-width: 130px;
+  }
+
+  .ctaText {
+    display: inline;
+  }
+
+  .ctaIcon {
+    display: none;
+  }
 }
 
 .cta:focus-visible {

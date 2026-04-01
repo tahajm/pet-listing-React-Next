@@ -30,7 +30,15 @@ export function Card({
       </div>
       <h3 className={`${styles.petName} h4`}>{name}</h3>
       <a href="#petDetail" className={styles.cta} aria-label={`View ${name}`}>
-        View
+        <Image
+          src="/icons/arrow-right.svg"
+          alt=""
+          width={24}
+          height={24}
+          className={styles.ctaIcon}
+          aria-hidden
+        />
+        <span className={styles.ctaText}>View</span>
       </a>
     </li>
   );
