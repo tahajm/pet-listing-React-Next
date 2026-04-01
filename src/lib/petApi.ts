@@ -1,8 +1,8 @@
 import { Pet } from '@/types';
-import { PETS_API_URL, SPECIES_API_URL } from '@/lib/config';
+import { petsApiConfig } from '@/lib/config';
 
 export async function getPets(params?: string): Promise<Pet[]> {
-  const response = await fetch(`${PETS_API_URL}?${params}`);
+  const response = await fetch(`${petsApiConfig.url}?${params}`);
 
   if (!response.ok) {
     throw new Error(`Failed to fetch pets: ${response.status} ${response.statusText}`);
@@ -12,10 +12,8 @@ export async function getPets(params?: string): Promise<Pet[]> {
 }
 
 export async function getSpecies(): Promise<string[]> {
-  const REVALIDATE_TIME = 3600;
-
-  const response = await fetch(`${SPECIES_API_URL}`, {
-    next: { revalidate: REVALIDATE_TIME },
+  const response = await fetch(`${petsApiConfig.speciesUrl}`, {
+    next: { revalidate: petsApiConfig.speciesRevalidateTime },
   });
 
   if (!response.ok) {
