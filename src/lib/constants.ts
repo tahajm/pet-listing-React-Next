@@ -1,0 +1,3 @@
+export const TABLET_BREAKPOINT_PX = 768;
+export const MOBILE_IMAGE_WIDTH_PX = 150;
+export const DESKTOP_IMAGE_WIDTH_VW = 33;
