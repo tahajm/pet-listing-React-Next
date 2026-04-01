@@ -10,7 +10,7 @@ export function PetList({ pets }: { pets: Pet[] }) {
         {`${pets.length} pets found`}
       </div>
       <ul className={styles.cardContainer}>
-        {pets.map((pet, index) => (
+        {pets.map(pet => (
           <Card name={pet.name} image={pet.photoUrl} key={pet.id} />
         ))}
       </ul>
