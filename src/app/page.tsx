@@ -1,13 +1,11 @@
 import { Card } from '@/components/Card';
 import { Container } from '@/components/Container';
-import { Header } from '@/components/Header';
 
 import styles from './page.module.css';
 
 export default function Home() {
   return (
     <div>
-      <Header />
       <div className="main">
         <Container>
           <h1>Pets</h1>
