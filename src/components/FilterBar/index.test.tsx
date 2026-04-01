@@ -11,7 +11,14 @@ const SPECIES = ['Cat', 'Dog', 'Rat'];
 
 function setup(searchParams = '') {
   const push = vi.fn();
-  vi.mocked(useRouter).mockReturnValue({ push } as ReturnType<typeof useRouter>);
+  vi.mocked(useRouter).mockReturnValue({
+    push,
+    back: vi.fn(),
+    forward: vi.fn(),
+    refresh: vi.fn(),
+    replace: vi.fn(),
+    prefetch: vi.fn(),
+  });
   vi.mocked(useSearchParams).mockReturnValue(
     new URLSearchParams(searchParams) as ReturnType<typeof useSearchParams>,
   );
