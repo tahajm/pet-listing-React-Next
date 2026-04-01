@@ -17,7 +17,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<Sea
   const pets = await getPets(paramsString);
   const species = await cachedGetSpecies();
   return (
-    <main className={styles.main}>
+    <main className="main">
       <Container>
         <h1>Pets</h1>
         <Suspense fallback={<FilterBarFallback />}>
