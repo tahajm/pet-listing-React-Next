@@ -85,21 +85,22 @@ Please create a zip file of the project folder (excluding the node_modules direc
 
 ### Global dependencies
 
-Make sure you have Node 20 installed:
+Make sure you have Node 20 and pnpm installed:
 
 - [Node.js](https://nodejs.org/)
 - [nvm](https://github.com/nvm-sh/nvm) or [nvm-windows](https://github.com/coreybutler/nvm-windows)
+- [pnpm](https://pnpm.io/installation)
 
 ### Install dependencies
 
 ```
-npm install
+pnpm install
 ```
 
 ### Run development server
 
 ```
-npm run dev
+pnpm dev
 ```
 
 Will open your default browser to [http://localhost:3000](http://localhost:3000).
@@ -107,7 +108,7 @@ Will open your default browser to [http://localhost:3000](http://localhost:3000)
 ### Build production bundles
 
 ```
-npm run build
+pnpm build
 ```
 
 ## Questions
@@ -157,6 +158,17 @@ This decision is also aligned with pagination. In a real application, `/api/pets
 
 Species is a sub-resource of pets rather than an independent concept, so nesting it under `/api/pets/species` makes the relationship explicit in the URL and follows REST conventions naturally. This also keeps the data-fetching layer consistent — `getPets` already uses `fetch` against an internal API route, so `getSpecies` following the same pattern avoids having two different strategies for server-side data access.
 
+### Dependency maintenance
+
+All dependencies were upgraded to their latest versions within the declared semver ranges and known vulnerabilities were resolved.
+
+```
+pnpm upgrade
+pnpm audit fix
+```
+
+All tests, type checks, and lint rules pass after the upgrade.
+
 ### Default sort by name
 
 The README requires pets to be sorted alphabetically by name by default.
@@ -171,3 +183,5 @@ The README requires pets to be sorted alphabetically by name by default.
 The default sort is a contract about how data should be returned, not a product-level concern for each consumer to implement independently. By setting the default in the API, any future consumer gets the correct behavior automatically without needing to know to pass `sortBy=name`.
 
 The tradeoff is that Option 1 would make the sort state fully visible in the URL, which is better for shareability. However, for a default state a clean URL with no `sortBy` param is better UX — the URL only gains params when the user actively changes something.
+
+
