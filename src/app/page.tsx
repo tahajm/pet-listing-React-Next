@@ -1,23 +1,37 @@
-import { Card } from '@/components/Card';
-import { Container } from '@/components/Container';
-
+import { Suspense, cache } from 'react';
+import { getPets, getSpecies } from '@/lib/petApi';
 import styles from './page.module.css';
+import { SearchParams } from '@/types';
+import { toQueryString } from '@/lib/util';
+import { Container, FilterBar, Card } from '@/components';
 
-export default function Home() {
+const cachedGetSpecies = cache(getSpecies);
+
+const FilterBarFallback = () => {
+  return <div className={styles.filterBarSkeleton} />;
+};
+
+export default async function Home({ searchParams }: { searchParams: Promise<SearchParams> }) {
+  const params = await searchParams;
+  const paramsString = toQueryString(params);
+  const pets = await getPets(paramsString);
+  const species = await cachedGetSpecies();
   return (
-    <div>
-      <div className="main">
-        <Container>
-          <h1>Pets</h1>
-
-          <h2>Results</h2>
-          <div className={styles.cardContainer}>
-            <Card name="Dann" image="/images/ES0AHRx.jpg" />
-            <Card name="Annemie" image="/images/wt5AGpR.jpg" />
-            <Card name="Daamin" image="/images/cL9Su9q.jpg" />
-          </div>
-        </Container>
-      </div>
-    </div>
+    <main className={styles.main}>
+      <Container>
+        <h1>Pets</h1>
+        <Suspense fallback={<FilterBarFallback />}>
+          <FilterBar species={species} />
+        </Suspense>
+        <section aria-labelledby="results-heading">
+          <h2 id="results-heading">Results</h2>
+          <ul className={styles.cardContainer}>
+            {pets.map((pet, index) => (
+              <Card name={pet.name} image={pet.photoUrl} key={pet.id} priority={index === 0} />
+            ))}
+          </ul>
+        </section>
+      </Container>
+    </main>
   );
 }
