@@ -1,7 +1,7 @@
 'use client';
 
-import styles from './index.module.css';
 import { useFilterBar } from './index.hooks';
+import styles from './index.module.css';
 
 export function FilterBar({ species }: Readonly<{ species: string[] }>) {
   const { handleChangeSpecies, toggleLatestEnabled, isLatestEnabled, selectedSpecies } =
