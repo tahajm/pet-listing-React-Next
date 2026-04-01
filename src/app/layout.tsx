@@ -12,13 +12,16 @@ const openSans = Open_Sans({
   display: 'swap',
 });
 
+const title = 'Pets B.V.';
+const description = 'Browse and filter pets available for adoption at Pets B.V.';
+
 export const metadata: Metadata = {
-  title: 'Pets B.V.',
-  description: 'Browse and filter pets available for adoption at Pets B.V.',
+  title,
+  description,
   openGraph: {
     type: 'website',
-    title: 'Pets B.V.',
-    description: 'Browse and filter pets available for adoption at Pets B.V.',
+    title,
+    description,
   },
 };
 
