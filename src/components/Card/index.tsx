@@ -1,6 +1,12 @@
 import Image from 'next/image';
 import styles from './index.module.css';
 
+const GRID_BREAKPOINT_PX = 768;
+const MOBILE_IMAGE_WIDTH_PX = 150;
+const DESKTOP_IMAGE_WIDTH_VW = 33;
+
+const IMAGE_SIZES = `(min-width: ${GRID_BREAKPOINT_PX}px) ${DESKTOP_IMAGE_WIDTH_VW}vw, ${MOBILE_IMAGE_WIDTH_PX}px`;
+
 export function Card({
   name,
   image,
@@ -18,7 +24,7 @@ export function Card({
           alt={`Photo of ${name}`}
           className={styles.image}
           fill
-          sizes="(min-width: 768px) 33vw, 150px"
+          sizes={IMAGE_SIZES}
           priority={priority}
         />
       </div>
