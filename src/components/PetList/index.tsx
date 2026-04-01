@@ -11,7 +11,7 @@ export function PetList({ pets }: { pets: Pet[] }) {
       </div>
       <ul className={styles.cardContainer}>
         {pets.map((pet, index) => (
-          <Card name={pet.name} image={pet.photoUrl} key={pet.id} priority={index === 0} />
+          <Card name={pet.name} image={pet.photoUrl} key={pet.id} />
         ))}
       </ul>
     </section>
