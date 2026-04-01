@@ -1,9 +1,9 @@
 import { Suspense, cache } from 'react';
 import { getPets, getSpecies } from '@/lib/petApi';
-import styles from './page.module.css';
-import { SearchParams } from '@/types';
 import { toQueryString } from '@/lib/util';
 import { Container, FilterBar, Card } from '@/components';
+import { SearchParams } from '@/types';
+import styles from './page.module.css';
 
 const cachedGetSpecies = cache(getSpecies);
 
