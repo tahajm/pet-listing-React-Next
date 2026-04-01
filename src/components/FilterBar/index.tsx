@@ -32,6 +32,7 @@ export function FilterBar({ species }: Readonly<{ species: string[] }>) {
           <img src="/icons/chevron-down.svg" alt="" aria-hidden="true" className={styles.chevron} />
         </div>
         <button
+          type="button"
           onClick={toggleLatestEnabled}
           className={styles.toggle}
           aria-pressed={isLatestEnabled}
