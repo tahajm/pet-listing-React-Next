@@ -156,3 +156,18 @@ In a real-world application, species would typically live in its own database ta
 This decision is also aligned with pagination. In a real application, `/api/pets` would be paginated, meaning fetching all pets to derive species on the frontend would only return species present on the current page — producing an incomplete and incorrect filter dropdown. A dedicated endpoint decouples the filter options from the paginated results entirely.
 
 Species is a sub-resource of pets rather than an independent concept, so nesting it under `/api/pets/species` makes the relationship explicit in the URL and follows REST conventions naturally. This also keeps the data-fetching layer consistent — `getPets` already uses `fetch` against an internal API route, so `getSpecies` following the same pattern avoids having two different strategies for server-side data access.
+
+### Default sort by name
+
+The README requires pets to be sorted alphabetically by name by default.
+
+**Options considered:**
+
+1. Handle it in the consumer — always pass `?sortBy=name` from `page.tsx` when no other sort is active, leaving the API unchanged.
+2. Handle it in the API — default `sortBy` to `name` when no param is provided.
+
+**Decision: Option 2 — default in the API**
+
+The default sort is a contract about how data should be returned, not a product-level concern for each consumer to implement independently. By setting the default in the API, any future consumer gets the correct behavior automatically without needing to know to pass `sortBy=name`.
+
+The tradeoff is that Option 1 would make the sort state fully visible in the URL, which is better for shareability. However, for a default state a clean URL with no `sortBy` param is better UX — the URL only gains params when the user actively changes something.

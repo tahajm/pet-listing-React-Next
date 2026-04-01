@@ -23,10 +23,7 @@ export function GET(request: NextRequest) {
     }
   });
 
-  const sortBy = searchParams.get('sortBy');
-  if (!sortBy) {
-    return Response.json(filteredData);
-  }
+  const sortBy = searchParams.get('sortBy') ?? 'name';
 
   filteredData = getSortedPets(filteredData, sortBy);
 
