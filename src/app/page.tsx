@@ -4,8 +4,10 @@ import { FilterBar, PetList, Skeleton } from '@/components';
 import { SearchParams } from '@/types';
 import styles from './page.module.css';
 
-export default async function Home({ searchParams }: { searchParams: Promise<SearchParams> }) {
-  const searchParamsResolved = await searchParams;
+type PageProps = { searchParams: Promise<SearchParams> };
+
+export default async function Home({ searchParams: _searchParams }: PageProps) {
+  const searchParams = await _searchParams;
   const species = await getSpecies();
 
   return (
@@ -14,7 +16,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<Sea
       <Suspense fallback={<Skeleton className={styles.filterBarSkeleton} />}>
         <FilterBar species={species} />
       </Suspense>
-      <PetList searchParams={searchParamsResolved} />
+      <PetList searchParams={searchParams} />
     </main>
   );
 }
