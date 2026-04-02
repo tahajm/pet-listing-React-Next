@@ -207,3 +207,5 @@ Both match the provided designs. These values were kept as-is to stay loyal to t
 
 - Date validation in `isValidDate` is too loose — no anchors, no range checks
 - SVG loading is inconsistent and chevron colour relies on a fragile CSS filter hack
+- Breakpoint `768px` is duplicated across CSS modules with no shared source — a PostCSS plugin (e.g. `postcss-custom-media`) would allow a single `@custom-media --tablet` definition
+- No e2e tests for critical user flows (filtering, sorting) — Playwright or Cypress would cover gaps unit tests cannot
