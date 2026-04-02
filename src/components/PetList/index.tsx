@@ -12,6 +12,7 @@ export async function PetList({ searchParams }: { searchParams: SearchParams }) 
 
   const paramsString = toQueryString(searchParams);
   const pets = await getPets(paramsString);
+  const hasPets = pets.length > 0;
 
   return (
     <section aria-labelledby="results-heading">
@@ -19,11 +20,15 @@ export async function PetList({ searchParams }: { searchParams: SearchParams }) 
       <div aria-live="polite" aria-atomic="true" className="srOnly">
         {`${pets.length} pets found`}
       </div>
-      <ul className={styles.cardContainer}>
-        {pets.map(pet => (
-          <Card name={pet.name} image={pet.photoUrl} key={pet.id} />
-        ))}
-      </ul>
+      {hasPets ? (
+        <ul className={styles.cardContainer}>
+          {pets.map(pet => (
+            <Card name={pet.name} image={pet.photoUrl} key={pet.id} />
+          ))}
+        </ul>
+      ) : (
+        <p>No pets match the selected filters.</p>
+      )}
     </section>
   );
 }
