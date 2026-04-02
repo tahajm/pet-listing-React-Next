@@ -1,5 +1,6 @@
 const TABLET_BREAKPOINT_PX = 768;
 const MOBILE_IMAGE_WIDTH_PX = 150;
-const DESKTOP_IMAGE_WIDTH_VW = 33;
+// Approximation: container width minus padding and column gaps, divided by 3 columns.
+const DESKTOP_IMAGE_WIDTH_CALC = 'calc((min(1100px, 100vw) - 10rem) / 3)';
 
-export const IMAGE_SIZES = `(min-width: ${TABLET_BREAKPOINT_PX}px) ${DESKTOP_IMAGE_WIDTH_VW}vw, ${MOBILE_IMAGE_WIDTH_PX}px`;
+export const IMAGE_SIZES = `(min-width: ${TABLET_BREAKPOINT_PX}px) ${DESKTOP_IMAGE_WIDTH_CALC}, ${MOBILE_IMAGE_WIDTH_PX}px`;
