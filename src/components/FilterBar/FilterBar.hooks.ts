@@ -19,12 +19,12 @@ export function useFilterBar() {
       ? { sortBy: '', order: '' }
       : { sortBy: 'dateAdded', order: 'desc' };
     const queryString = updateQueryString(searchParams, newQueries);
-    router.push(`${pathname}?${queryString}`);
+    router.push(queryString ? `${pathname}?${queryString}` : pathname);
   };
 
   const handleChangeSpecies = (e: ChangeEvent<HTMLSelectElement>) => {
     const queryString = updateQueryString(searchParams, { species: e.target.value });
-    router.push(`${pathname}?${queryString}`);
+    router.push(queryString ? `${pathname}?${queryString}` : pathname);
   };
 
   return {

@@ -77,7 +77,7 @@ describe('FilterBar', () => {
 
       await userEvent.click(screen.getByRole('button', { name: 'Latest added' }));
 
-      expect(push).toHaveBeenCalledWith('/?');
+      expect(push).toHaveBeenCalledWith('/');
     });
 
     it('preserves existing species param when toggling on', async () => {
