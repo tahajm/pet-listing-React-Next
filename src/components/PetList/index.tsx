@@ -2,7 +2,7 @@ import { cacheLife, cacheTag } from 'next/cache';
 import { getPets } from '@/lib/api';
 import { toQueryString } from '@/lib/utils';
 import { Card } from '@/components/Card';
-import { SearchParams } from '@/types';
+import type { SearchParams } from '@/types';
 import styles from './index.module.css';
 
 type PetListProps = { searchParams: SearchParams };

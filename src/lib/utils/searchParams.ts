@@ -1,4 +1,4 @@
-import { SearchParams } from '@/types';
+import type { SearchParams } from '@/types';
 
 export function toQueryString(input: SearchParams) {
   const params = new URLSearchParams();

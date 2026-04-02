@@ -1,5 +1,5 @@
-import { ChangeEvent } from 'react';
-import { usePathname, useSearchParams, useRouter } from 'next/navigation';
+import type { ChangeEvent } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { updateQueryString } from '@/lib/utils';
 
 export function useFilterBar() {

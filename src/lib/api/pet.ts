@@ -1,5 +1,5 @@
-import { Pet } from '@/types';
 import { petsApiConfig } from '@/lib/config';
+import type { Pet } from '@/types';
 
 export async function getPets(params?: string): Promise<Pet[]> {
   const response = await fetch(`${petsApiConfig.url}?${params}`);

@@ -1,5 +1,5 @@
-import { petsApiConfig } from '@/lib/config';
 import { cacheLife } from 'next/cache';
+import { petsApiConfig } from '@/lib/config';
 
 export async function getSpecies(): Promise<string[]> {
   'use cache';

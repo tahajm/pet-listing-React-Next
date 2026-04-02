@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import styles from './index.module.css';
 import { IMAGE_SIZES } from './index.constants';
+import styles from './index.module.css';
 
 type CardProps = { name: string; image: string };
 
