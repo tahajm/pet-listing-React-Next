@@ -9,6 +9,8 @@
   --color-soft-gray: #ddd;
   --color-dark-gray: #a2a2a2;
   --container-width: 1100px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
   --radius-full: 9999px;
   --focus-ring: 0 0 0 0.3rem rgb(0 122 188 / 18%);
 }
