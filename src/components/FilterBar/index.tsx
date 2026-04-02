@@ -3,7 +3,9 @@
 import { useFilterBar } from './index.hooks';
 import styles from './index.module.css';
 
-export function FilterBar({ species }: Readonly<{ species: string[] }>) {
+type FilterBarProps = Readonly<{ species: string[] }>;
+
+export function FilterBar({ species }: FilterBarProps) {
   const { handleChangeSpecies, toggleLatestEnabled, isLatestEnabled, selectedSpecies } =
     useFilterBar();
 

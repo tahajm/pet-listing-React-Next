@@ -1,6 +1,8 @@
 import styles from './index.module.css';
 
-export function Skeleton({ className }: { className?: string }) {
+type SkeletonProps = { className?: string };
+
+export function Skeleton({ className }: SkeletonProps) {
   return (
     <div
       role="presentation"

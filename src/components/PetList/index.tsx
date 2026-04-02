@@ -5,7 +5,9 @@ import { Card } from '@/components/Card';
 import { SearchParams } from '@/types';
 import styles from './index.module.css';
 
-export async function PetList({ searchParams }: { searchParams: SearchParams }) {
+type PetListProps = { searchParams: SearchParams };
+
+export async function PetList({ searchParams }: PetListProps) {
   'use cache';
   cacheLife('minutes');
   cacheTag('petsList');

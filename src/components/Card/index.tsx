@@ -1,7 +1,8 @@
 import Image from 'next/image';
-import { CardProps } from './index.types';
 import styles from './index.module.css';
 import { IMAGE_SIZES } from './index.constants';
+
+type CardProps = { name: string; image: string };
 
 export function Card({ name, image }: CardProps) {
   return (
