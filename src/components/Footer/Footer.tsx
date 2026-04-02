@@ -1,4 +1,4 @@
-import styles from './index.module.css';
+import styles from './Footer.module.css';
 
 export async function Footer() {
   'use cache';

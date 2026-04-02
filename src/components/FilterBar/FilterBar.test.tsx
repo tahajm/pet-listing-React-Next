@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { describe, expect, it, vi } from 'vitest';
 
-import { FilterBar } from './index';
+import { FilterBar } from './FilterBar';
 
 vi.mock('next/navigation');
 

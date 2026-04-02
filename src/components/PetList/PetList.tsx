@@ -3,7 +3,7 @@ import { getPets } from '@/lib/api';
 import { toQueryString } from '@/lib/utils';
 import { Card } from '@/components/Card';
 import type { SearchParams } from '@/types';
-import styles from './index.module.css';
+import styles from './PetList.module.css';
 
 type PetListProps = { searchParams: SearchParams };
 

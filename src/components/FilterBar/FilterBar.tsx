@@ -1,7 +1,7 @@
 'use client';
 
-import { useFilterBar } from './index.hooks';
-import styles from './index.module.css';
+import { useFilterBar } from './FilterBar.hooks';
+import styles from './FilterBar.module.css';
 
 type FilterBarProps = Readonly<{ species: string[] }>;
 

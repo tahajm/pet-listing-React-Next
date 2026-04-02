@@ -1,4 +1,4 @@
-import styles from './index.module.css';
+import styles from './Skeleton.module.css';
 
 type SkeletonProps = { className?: string };
 
