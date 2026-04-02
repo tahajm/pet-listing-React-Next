@@ -1,60 +1,46 @@
-.container {
-  list-style: none;
+.card {
   display: flex;
   align-items: center;
-  flex-basis: 33%;
-  gap: 2.4rem;
+  gap: 1.6rem;
+  list-style: none;
+}
+
+.imageContainer {
+  position: relative;
+  flex: 0 0 150px;
+  aspect-ratio: 4 / 3;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--radius-lg);
 }
 
 .petName {
   flex: 1 1 auto;
-  min-width: 0;
+  min-width: 2rem;
   overflow: hidden;
-  text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.image {
-  object-position: center;
-  object-fit: cover;
-  border-radius: 16px;
-}
-
-.imageContainer {
-  flex: 0 0 150px;
-  position: relative;
-  aspect-ratio: 16 / 9;
-}
-
-@media (min-width: 768px) {
-  .imageContainer {
-    flex: 1 1 auto;
-    width: 100%;
-    aspect-ratio: 4 / 3;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+  text-overflow: ellipsis;
 }
 
 .cta {
-  background-color: var(--color-vibrant-blue);
   display: flex;
+  flex-shrink: 0;
   justify-content: center;
   align-items: center;
   padding: 1.4rem;
-  border-radius: 9999px;
+  border: none;
+  border-radius: var(--radius-full);
+  background-color: var(--color-vibrant-blue);
   color: var(--color-white);
   text-decoration: none;
-  flex-shrink: 0;
 }
 
-.ctaText {
-  display: none;
+.cta:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
 }
 
 .ctaIcon {
@@ -62,25 +48,34 @@
   filter: brightness(0) invert(1);
 }
 
+.ctaText {
+  display: none;
+}
+
 @media (min-width: 768px) {
-  .cta {
-    padding: 1.4rem 1.6rem;
-    border-radius: 8px;
-    font-size: 1.6rem;
-    font-weight: 700;
-    min-width: 130px;
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .ctaText {
-    display: inline;
+  .imageContainer {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .cta {
+    min-width: 130px;
+    padding: 1.4rem 1.6rem;
+    border-radius: var(--radius-md);
+    font-size: 1.6rem;
+    font-weight: 700;
   }
 
   .ctaIcon {
     display: none;
   }
-}
 
-.cta:focus-visible {
-  outline: 3px solid var(--color-vibrant-blue);
-  outline-offset: 3px;
+  .ctaText {
+    display: inline;
+  }
 }

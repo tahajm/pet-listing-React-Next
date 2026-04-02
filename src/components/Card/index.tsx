@@ -11,7 +11,7 @@ const IMAGE_SIZES = `(min-width: ${TABLET_BREAKPOINT_PX}px) ${DESKTOP_IMAGE_WIDT
 
 export function Card({ name, image }: CardProps) {
   return (
-    <li className={styles.container}>
+    <li className={styles.card}>
       <div className={styles.imageContainer}>
         <Image
           src={image}
