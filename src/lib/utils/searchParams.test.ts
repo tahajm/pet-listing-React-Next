@@ -34,4 +34,9 @@ describe('updateQueryString', () => {
     const current = new URLSearchParams('species=cat&sortBy=dateAdded');
     expect(updateQueryString(current, { sortBy: 'name' })).toBe('species=cat&sortBy=name');
   });
+
+  it('removes keys when updated with empty string', () => {
+    const current = new URLSearchParams('sortBy=dateAdded&order=desc');
+    expect(updateQueryString(current, { sortBy: '', order: '' })).toBe('');
+  });
 });

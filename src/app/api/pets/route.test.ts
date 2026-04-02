@@ -37,4 +37,13 @@ describe('GET /api/pets', () => {
 
     expect(data).toHaveLength(20);
   });
+
+  it('filters and sorts in combination', async () => {
+    const response = await GET(makeRequest('species=Cat&sortBy=dateAdded&order=desc'));
+    const data = await response.json();
+
+    expect(data.every((pet: { species: string }) => pet.species === 'Cat')).toBe(true);
+    expect(data[0].name).toBe('Moose');
+    expect(data[data.length - 1].name).toBe('Henry');
+  });
 });

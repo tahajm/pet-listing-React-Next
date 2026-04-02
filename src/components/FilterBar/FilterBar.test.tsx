@@ -42,7 +42,9 @@ describe('FilterBar', () => {
     it('reflects pre-existing URL params on load', () => {
       setup('species=Dog&sortBy=dateAdded&order=desc');
 
-      expect(screen.getByRole<HTMLSelectElement>('combobox').value).toBe('Dog');
+      expect(
+        screen.getByRole<HTMLSelectElement>('combobox', { name: 'Filter by species' }).value,
+      ).toBe('Dog');
       expect(screen.getByRole('button', { name: 'Latest added' })).toHaveAttribute(
         'aria-pressed',
         'true',
@@ -93,9 +95,23 @@ describe('FilterBar', () => {
     it('navigates with selected species', async () => {
       const { push } = setup();
 
-      await userEvent.selectOptions(screen.getByRole('combobox'), 'Dog');
+      await userEvent.selectOptions(
+        screen.getByRole('combobox', { name: 'Filter by species' }),
+        'Dog',
+      );
 
       expect(push).toHaveBeenCalledWith('/?species=Dog');
+    });
+
+    it('clears species when reset to default option', async () => {
+      const { push } = setup('species=Dog');
+
+      await userEvent.selectOptions(
+        screen.getByRole('combobox', { name: 'Filter by species' }),
+        '',
+      );
+
+      expect(push).toHaveBeenCalledWith('/');
     });
   });
 });
