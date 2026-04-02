@@ -156,7 +156,7 @@ export const data = [
     id: 18,
     name: 'Buster',
     species: 'Dog',
-    available: 'Yes',
+    available: true,
     birthYear: 2017,
     dateAdded: '12-01-2022',
     photoUrl: '/images/0FdlwHx.jpg',
