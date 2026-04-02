@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { getSpecies } from '@/lib/petApi';
+import { getSpecies } from '@/lib/api';
 import { FilterBar, PetList, Skeleton } from '@/components';
 import { SearchParams } from '@/types';
 import styles from './page.module.css';

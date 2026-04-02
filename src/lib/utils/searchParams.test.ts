@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { toQueryString, updateQueryString } from './util';
+import { toQueryString, updateQueryString } from './searchParams';
 
 describe('toQueryString', () => {
   it('returns empty string for empty input', () => {

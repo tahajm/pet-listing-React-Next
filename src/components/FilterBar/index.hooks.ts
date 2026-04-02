@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react';
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
-import { updateQueryString } from '@/lib/util';
+import { updateQueryString } from '@/lib/utils';
 
 export function useFilterBar() {
   const router = useRouter();

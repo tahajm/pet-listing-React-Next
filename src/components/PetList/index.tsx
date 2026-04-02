@@ -1,9 +1,9 @@
-import { Card } from '@/components/Card';
 import { cacheLife, cacheTag } from 'next/cache';
-import styles from './index.module.css';
-import { getPets } from '@/lib/petApi';
+import { getPets } from '@/lib/api';
+import { toQueryString } from '@/lib/utils';
+import { Card } from '@/components/Card';
 import { SearchParams } from '@/types';
-import { toQueryString } from '@/lib/util';
+import styles from './index.module.css';
 
 export async function PetList({ searchParams }: { searchParams: SearchParams }) {
   'use cache';
