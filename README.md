@@ -202,3 +202,8 @@ Two elements fall below the WCAG AA minimum contrast ratio of 4.5:1 for normal t
 - **Footer copyright** — same colour combination
 
 Both match the provided designs. These values were kept as-is to stay loyal to the design.
+
+## Areas of Improvement
+
+- Date validation in `isValidDate` is too loose — no anchors, no range checks
+- SVG loading is inconsistent and chevron colour relies on a fragile CSS filter hack
