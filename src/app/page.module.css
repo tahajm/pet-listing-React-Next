@@ -1,4 +1,4 @@
 .filterBarSkeleton {
-  height: 4.2rem;
+  height: var(--control-height);
   margin-bottom: 3.2rem;
 }

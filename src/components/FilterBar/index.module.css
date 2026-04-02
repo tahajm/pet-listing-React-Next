@@ -3,10 +3,10 @@
 }
 
 .filterBar {
-  border: none;
   display: flex;
   gap: 1.2rem;
   flex-wrap: wrap;
+  border: none;
 }
 
 .selectWrapper {
@@ -14,7 +14,7 @@
 }
 
 .pillControl {
-  height: 4.2rem;
+  height: var(--control-height);
   border: 0.1rem solid var(--color-soft-gray);
   border-radius: var(--radius-full);
   background-color: var(--color-white);
@@ -44,9 +44,9 @@
   top: 50%;
   width: 1.6rem;
   height: 1.6rem;
+  filter: invert(35%) sepia(90%) saturate(500%) hue-rotate(185deg) brightness(90%);
   transform: translateY(-50%);
   pointer-events: none;
-  filter: invert(35%) sepia(90%) saturate(500%) hue-rotate(185deg) brightness(90%);
 }
 
 .toggle {
@@ -55,9 +55,9 @@
   align-items: center;
   justify-content: center;
   padding: 0 1.8rem;
+  overflow: hidden;
   color: var(--color-black);
   white-space: nowrap;
-  overflow: hidden;
 }
 
 .toggle[aria-pressed='true'] {

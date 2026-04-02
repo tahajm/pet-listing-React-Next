@@ -1,4 +1,4 @@
 .skeleton {
   background-color: var(--color-soft-gray);
-  border-radius: 4px;
+  border-radius: var(--radius-md);
 }

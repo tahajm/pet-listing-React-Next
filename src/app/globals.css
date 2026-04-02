@@ -9,6 +9,8 @@
   --color-soft-gray: #ddd;
   --color-dark-gray: #a2a2a2;
   --container-width: 1100px;
+  --layout-height: 192px;
+  --control-height: 4.2rem;
   --radius-md: 8px;
   --radius-lg: 16px;
   --radius-full: 9999px;
@@ -24,13 +26,6 @@
 html {
   font-size: 62.5%;
   line-height: 1.5;
-}
-
-.main {
-  max-width: var(--container-width);
-  margin: 0 auto;
-  min-height: calc(100vh - 166px);
-  padding: 2.4rem 1rem;
 }
 
 html,
@@ -73,6 +68,13 @@ h4,
   margin-bottom: 0.8rem;
 }
 
+.main {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  min-height: calc(100vh - var(--layout-height));
+  padding: 2.4rem 1rem;
+}
+
 .srOnly {
   position: absolute;
   width: 1px;
@@ -81,6 +83,6 @@ h4,
   margin: -1px;
   overflow: hidden;
   clip-path: inset(50%);
-  white-space: nowrap;
   border: 0;
+  white-space: nowrap;
 }
