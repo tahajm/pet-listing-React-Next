@@ -1,4 +1,4 @@
-import type { ChangeEvent } from 'react';
+import { type ChangeEvent, useTransition } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { updateQueryString } from '@/lib/utils';
 
@@ -6,6 +6,7 @@ export function useFilterBar() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
+  const [isPending, startTransition] = useTransition();
 
   const sortBy = searchParams.get('sortBy');
   const order = searchParams.get('order');
@@ -14,17 +15,23 @@ export function useFilterBar() {
   const isLatestEnabled = sortBy === 'dateAdded' && order === 'desc';
   const selectedSpecies = species ?? '';
 
+  const transitionRouteByQueryString = (queryString: string) => {
+    startTransition(() => {
+      router.push(queryString ? `${pathname}?${queryString}` : pathname);
+    });
+  };
+
   const toggleLatestEnabled = () => {
     const newQueries = isLatestEnabled
       ? { sortBy: '', order: '' }
       : { sortBy: 'dateAdded', order: 'desc' };
     const queryString = updateQueryString(searchParams, newQueries);
-    router.push(queryString ? `${pathname}?${queryString}` : pathname);
+    transitionRouteByQueryString(queryString);
   };
 
   const handleChangeSpecies = (e: ChangeEvent<HTMLSelectElement>) => {
     const queryString = updateQueryString(searchParams, { species: e.target.value });
-    router.push(queryString ? `${pathname}?${queryString}` : pathname);
+    transitionRouteByQueryString(queryString);
   };
 
   return {
@@ -32,5 +39,6 @@ export function useFilterBar() {
     handleChangeSpecies,
     selectedSpecies,
     isLatestEnabled,
+    isPending,
   };
 }

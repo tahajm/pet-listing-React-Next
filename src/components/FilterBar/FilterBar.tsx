@@ -6,11 +6,11 @@ import styles from './FilterBar.module.css';
 type FilterBarProps = Readonly<{ species: string[] }>;
 
 export function FilterBar({ species }: FilterBarProps) {
-  const { handleChangeSpecies, toggleLatestEnabled, isLatestEnabled, selectedSpecies } =
+  const { handleChangeSpecies, toggleLatestEnabled, isLatestEnabled, selectedSpecies, isPending } =
     useFilterBar();
 
   return (
-    <form role="search" aria-label="Filter pets" className={styles.form}>
+    <form role="search" aria-label="Filter pets" className={styles.form} aria-busy={isPending}>
       <fieldset className={styles.filterBar}>
         <legend className="srOnly">Filter pets</legend>
         <div className={styles.selectWrapper}>
