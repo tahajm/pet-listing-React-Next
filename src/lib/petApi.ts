@@ -1,5 +1,6 @@
 import { Pet } from '@/types';
 import { petsApiConfig } from '@/lib/config';
+import { cacheLife } from 'next/cache';
 
 export async function getPets(params?: string): Promise<Pet[]> {
   const response = await fetch(`${petsApiConfig.url}?${params}`);
@@ -12,9 +13,10 @@ export async function getPets(params?: string): Promise<Pet[]> {
 }
 
 export async function getSpecies(): Promise<string[]> {
-  const response = await fetch(`${petsApiConfig.speciesUrl}`, {
-    next: { revalidate: petsApiConfig.speciesRevalidateTime },
-  });
+  'use cache';
+  cacheLife('hours');
+
+  const response = await fetch(`${petsApiConfig.speciesUrl}`);
 
   if (!response.ok) {
     throw new Error(`Failed to fetch species: ${response.status} ${response.statusText}`);
