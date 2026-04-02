@@ -169,6 +169,14 @@ pnpm audit fix
 
 All tests, type checks, and lint rules pass after the upgrade.
 
+### Caching strategy: pets vs species
+
+The filter page is assumed to receive enough concurrent traffic that re-fetching and re-rendering on every request is wasteful, but users still expect the results to feel reasonably current. The two datasets have different update characteristics, so they get different cache lifetimes.
+
+Species is reference data — the kind of thing an administrator sets up once and rarely touches. Caching it for hours reflects that assumption. In a real deployment it could comfortably be days. The more important mechanism would be on-demand invalidation: when an admin adds a new species, a server action calls `revalidateTag('species')` and the dropdown updates immediately. Time-based expiry is just a safety net.
+
+Pets change more often — new arrivals, status updates, removals happen throughout the day. A shorter cache keeps the list reasonably fresh. The same on-demand principle applies: a server action that publishes or removes a pet would call `revalidateTag('pets')`, so the cached entries for every filter combination are invalidated the moment the change happens rather than waiting for the timer to run out. That said, these decisions are based on an assumption of moderate traffic and a catalogue that updates a handful of times per day. If pets were changing much more frequently — say, real-time availability updates — caching the list would cause more harm than good and should be dropped entirely.
+
 ### Default sort by name
 
 The README requires pets to be sorted alphabetically by name by default.
