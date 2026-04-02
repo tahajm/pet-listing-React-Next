@@ -1,7 +1,8 @@
-'use client';
 import styles from './index.module.css';
 
-export function Footer() {
+export async function Footer() {
+  'use cache';
+
   return (
     <footer>
       <div className={styles.band} />

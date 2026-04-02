@@ -1,13 +1,7 @@
 import Image from 'next/image';
-import {
-  TABLET_BREAKPOINT_PX,
-  MOBILE_IMAGE_WIDTH_PX,
-  DESKTOP_IMAGE_WIDTH_VW,
-} from '@/lib/constants';
 import { CardProps } from './index.types';
 import styles from './index.module.css';
-
-const IMAGE_SIZES = `(min-width: ${TABLET_BREAKPOINT_PX}px) ${DESKTOP_IMAGE_WIDTH_VW}vw, ${MOBILE_IMAGE_WIDTH_PX}px`;
+import { IMAGE_SIZES } from './index.constants';
 
 export function Card({ name, image }: CardProps) {
   return (
