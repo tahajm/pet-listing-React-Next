@@ -57,7 +57,7 @@ h2,
 h3,
 .h3 {
   font-size: 2.3rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   font-weight: 700;
 }
 
@@ -72,7 +72,7 @@ h4,
   max-width: var(--container-width);
   margin: 0 auto;
   min-height: calc(100vh - var(--layout-height));
-  padding: 2.4rem 1rem;
+  padding: 2.4rem 1.2rem;
 }
 
 .srOnly {

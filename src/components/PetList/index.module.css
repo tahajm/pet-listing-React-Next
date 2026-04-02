@@ -9,6 +9,6 @@
   .cardContainer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 8.4rem 4.2rem;
+    gap: 8rem 4rem;
   }
 }
