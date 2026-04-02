@@ -1,28 +1,22 @@
 .form {
-  display: contents;
+  margin: 0 0 3.2rem;
 }
 
 .filterBar {
   border: none;
-  margin: 0 0 3.2rem;
-  padding: 0;
-  min-width: 0;
   display: flex;
-  align-items: center;
   gap: 1.2rem;
   flex-wrap: wrap;
 }
 
 .selectWrapper {
   position: relative;
-  display: inline-flex;
-  align-items: center;
 }
 
 .pillControl {
   height: 4.2rem;
   border: 0.1rem solid var(--color-soft-gray);
-  border-radius: 9999px;
+  border-radius: var(--radius-full);
   background-color: var(--color-white);
   font: inherit;
   cursor: pointer;
@@ -34,13 +28,11 @@
 
 .pillControl:focus-visible {
   outline: none;
-  border-color: var(--color-vibrant-blue);
-  box-shadow: 0 0 0 0.3rem rgb(0 122 188 / 18%);
+  box-shadow: var(--focus-ring);
 }
 
 .select {
   composes: pillControl;
-  min-width: 11.2rem;
   padding: 0 4rem 0 1.6rem;
   color: var(--color-dark-gray);
   appearance: none;
@@ -62,7 +54,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 14rem;
   padding: 0 1.8rem;
   color: var(--color-black);
   white-space: nowrap;
