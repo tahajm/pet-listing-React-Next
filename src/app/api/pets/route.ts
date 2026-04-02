@@ -1,26 +1,27 @@
 import type { NextRequest } from 'next/server';
 
 import { data as petsData } from './data';
-
-type PetsData = Record<string, string | number | boolean>[];
+import type { Pet } from '@/types';
 
 export function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
 
-  let filteredData: PetsData = [...petsData];
+  let filteredData: Pet[] = [...petsData];
 
   searchParams.forEach((searchValue, searchKey) => {
-    if (filteredData.some(pet => searchKey in pet)) {
-      filteredData = filteredData.filter(pet => {
-        if (typeof pet[searchKey] === 'number') {
-          return pet[searchKey] === Number(searchValue);
-        }
-        if (typeof pet[searchKey] === 'boolean') {
-          return String(pet[searchKey]) === searchValue;
-        }
-        return pet[searchKey].toLowerCase().includes(searchValue.toLowerCase());
-      });
-    }
+    if (searchKey === 'sortBy' || searchKey === 'order') return;
+
+    filteredData = filteredData.filter(pet => {
+      if (!isPetKey(searchKey, pet)) return true;
+
+      const petValue = pet[searchKey];
+      if (typeof petValue === 'number') return petValue === Number(searchValue);
+      if (typeof petValue === 'boolean') return String(petValue) === searchValue;
+      if (typeof petValue === 'string') {
+        return petValue.toLowerCase().includes(searchValue.toLowerCase());
+      }
+      return false;
+    });
   });
 
   const sortBy = searchParams.get('sortBy') ?? 'name';
@@ -35,11 +36,9 @@ export function GET(request: NextRequest) {
   return Response.json(filteredData);
 }
 
-function getSortedPets(pets: PetsData, sortBy: string) {
+function getSortedPets(pets: Pet[], sortBy: string) {
   return pets.toSorted((petA, petB) => {
-    if (!(sortBy in petA) && !(sortBy in petB)) {
-      return 0;
-    }
+    if (!isPetKey(sortBy, petA) || !isPetKey(sortBy, petB)) return 0;
 
     const valueA = petA[sortBy];
     const valueB = petB[sortBy];
@@ -56,6 +55,10 @@ function getSortedPets(pets: PetsData, sortBy: string) {
     }
     return 0;
   });
+}
+
+function isPetKey(key: string, pet: Pet): key is keyof Pet {
+  return key in pet;
 }
 
 function parseDate(dateString: string) {

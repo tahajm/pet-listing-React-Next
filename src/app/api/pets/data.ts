@@ -1,4 +1,6 @@
-export const data = [
+import { Pet } from '@/types';
+
+export const data: Pet[] = [
   {
     id: 1,
     name: 'Daamin',
