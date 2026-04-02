@@ -42,8 +42,8 @@
   position: absolute;
   right: var(--space-4);
   top: 50%;
-  width: 1.6rem;
-  height: 1.6rem;
+  width: var(--space-4);
+  height: var(--space-4);
   filter: invert(35%) sepia(90%) saturate(500%) hue-rotate(185deg) brightness(90%);
   transform: translateY(-50%);
   pointer-events: none;
