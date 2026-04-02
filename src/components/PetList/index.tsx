@@ -1,8 +1,18 @@
 import { Card } from '@/components/Card';
-import { Pet } from '@/types';
+import { cacheLife, cacheTag } from 'next/cache';
 import styles from './index.module.css';
+import { getPets } from '@/lib/petApi';
+import { SearchParams } from '@/types';
+import { toQueryString } from '@/lib/util';
 
-export function PetList({ pets }: { pets: Pet[] }) {
+export async function PetList({ searchParams }: { searchParams: SearchParams }) {
+  'use cache';
+  cacheLife('minutes');
+  cacheTag('petsList');
+
+  const paramsString = toQueryString(searchParams);
+  const pets = await getPets(paramsString);
+
   return (
     <section aria-labelledby="results-heading">
       <h2 id="results-heading">Results</h2>
