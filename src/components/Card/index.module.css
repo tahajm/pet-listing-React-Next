@@ -1,7 +1,7 @@
 .card {
   display: flex;
   align-items: center;
-  gap: 1.6rem;
+  gap: var(--space-4);
   list-style: none;
 }
 
@@ -30,7 +30,7 @@
   flex-shrink: 0;
   justify-content: center;
   align-items: center;
-  padding: 1.6rem;
+  padding: var(--space-4);
   border: none;
   border-radius: var(--radius-full);
   background-color: var(--color-vibrant-blue);
@@ -65,9 +65,9 @@
 
   .cta {
     min-width: 130px;
-    padding: 1.6rem;
+    padding: var(--space-4);
     border-radius: var(--radius-md);
-    font-size: 1.6rem;
+    font-size: var(--space-4);
     font-weight: 700;
   }
 

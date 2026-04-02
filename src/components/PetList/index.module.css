@@ -1,7 +1,7 @@
 .cardContainer {
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
+  gap: var(--space-6);
   list-style: none;
 }
 
@@ -9,6 +9,6 @@
   .cardContainer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 8rem 4rem;
+    gap: var(--space-12) var(--space-9);
   }
 }

@@ -8,6 +8,18 @@
   --color-black: #323232;
   --color-soft-gray: #ddd;
   --color-dark-gray: #a2a2a2;
+
+  /* Spacing */
+  --space-2: 0.8rem;
+  --space-3: 1.2rem;
+  --space-4: 1.6rem;
+  --space-5: 2rem;
+  --space-6: 2.4rem;
+  --space-8: 3.2rem;
+  --space-9: 4rem;
+  --space-12: 8rem;
+
+  /* Layout */
   --container-width: 1100px;
   --layout-height: 192px;
   --control-height: 4.2rem;
@@ -43,21 +55,21 @@ body {
 h1,
 .h1 {
   font-size: 3.3rem;
-  margin-bottom: 2.4rem;
+  margin-bottom: var(--space-6);
   font-weight: 700;
 }
 
 h2,
 .h2 {
   font-size: 2.8rem;
-  margin-bottom: 2.4rem;
+  margin-bottom: var(--space-6);
   font-weight: 700;
 }
 
 h3,
 .h3 {
   font-size: 2.3rem;
-  margin-bottom: 1.2rem;
+  margin-bottom: var(--space-3);
   font-weight: 700;
 }
 
@@ -65,14 +77,14 @@ h4,
 .h4 {
   font-size: 1.8rem;
   font-weight: normal;
-  margin-bottom: 0.8rem;
+  margin-bottom: var(--space-2);
 }
 
 .main {
   max-width: var(--container-width);
   margin: 0 auto;
   min-height: calc(100vh - var(--layout-height));
-  padding: 2.4rem 1.2rem;
+  padding: var(--space-6) var(--space-3);
 }
 
 .srOnly {
