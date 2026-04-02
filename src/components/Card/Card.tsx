@@ -2,9 +2,9 @@ import Image from 'next/image';
 import { IMAGE_SIZES } from './Card.constants';
 import styles from './Card.module.css';
 
-type CardProps = { name: string; image: string };
+type CardProps = { name: string; image: string; priority?: boolean };
 
-export function Card({ name, image }: CardProps) {
+export function Card({ name, image, priority = false }: CardProps) {
   return (
     <li className={styles.card}>
       <div className={styles.imageContainer}>
@@ -13,6 +13,7 @@ export function Card({ name, image }: CardProps) {
           alt={`Photo of ${name}`}
           className={styles.image}
           fill
+          loading={priority ? 'eager' : 'lazy'}
           sizes={IMAGE_SIZES}
         />
       </div>

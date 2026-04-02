@@ -24,8 +24,8 @@ export async function PetList({ searchParams }: PetListProps) {
       </div>
       {hasPets ? (
         <ul className={styles.cardContainer}>
-          {pets.map(pet => (
-            <Card name={pet.name} image={pet.photoUrl} key={pet.id} />
+          {pets.map((pet, index) => (
+            <Card name={pet.name} image={pet.photoUrl} key={pet.id} priority={index === 0} />
           ))}
         </ul>
       ) : (
