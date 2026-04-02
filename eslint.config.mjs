@@ -30,7 +30,6 @@ export default defineConfig([
       'jsx-a11y': jsxA11Y,
       '@typescript-eslint': typescriptEslint,
       '@next/next': nextPlugin,
-      'jsx-a11y': jsxA11Y,
       compat,
       prettier,
       json,
@@ -66,7 +65,6 @@ export default defineConfig([
       ...nextPlugin.configs['core-web-vitals'].rules,
       ...jsxA11Y.configs.recommended.rules,
       ...json.configs.recommended.rules,
-      ...tseslint.configs.recommended.rules,
 
       '@typescript-eslint/consistent-type-imports': [
         'error',
