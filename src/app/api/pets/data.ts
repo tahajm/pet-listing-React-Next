@@ -1,4 +1,4 @@
-import { Pet } from '@/types';
+import type { Pet } from '@/types';
 
 export const data: Pet[] = [
   {
